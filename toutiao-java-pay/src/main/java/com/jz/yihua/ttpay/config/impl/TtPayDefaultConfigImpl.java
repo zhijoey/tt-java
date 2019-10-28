@@ -45,6 +45,10 @@ public class TtPayDefaultConfigImpl implements TtPayConfig {
     return tpDomainUrl;
   }
 
+  public void setTpDomainUrl(String tpDomainUrl) {
+    this.tpDomainUrl = tpDomainUrl;
+  }
+
   public void setSecret(String secret){
     this.secret = secret;
   }

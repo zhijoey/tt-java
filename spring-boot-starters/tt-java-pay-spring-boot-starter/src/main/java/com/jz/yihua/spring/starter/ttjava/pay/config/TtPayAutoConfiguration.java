@@ -38,6 +38,7 @@ public class TtPayAutoConfiguration {
     config.setAppid(StringUtils.trimToNull(this.properties.getAppid()));
     config.setMerchantid(StringUtils.trimToNull(this.properties.getMerchantid()));
     config.setSecret(StringUtils.trimToNull(this.properties.getSecret()));
+    config.setTpDomainUrl(StringUtils.trimToNull(this.properties.getTpDomainUrl()));
     final TtPayServiceImpl service = new TtPayServiceImpl() ;
     service.setTtMaConfig(config);
     return service;
