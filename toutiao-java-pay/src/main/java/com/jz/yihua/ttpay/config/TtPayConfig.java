@@ -14,8 +14,6 @@ public interface TtPayConfig {
 
     String getSecret();
 
-    String getTpDomainUrl();
-
     /**
      * http client builder
      *

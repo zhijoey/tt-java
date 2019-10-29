@@ -31,28 +31,6 @@ public class TtMaConstants {
     public static final String JSON = "JSON";
   }
 
-  /**
-   * 客服消息的消息类型.
-   */
-  public static class KefuMsgType {
-    /**
-     * 文本消息.
-     */
-    public static final String TEXT = "text";
-    /**
-     * 图片消息.
-     */
-    public static final String IMAGE = "image";
-    /**
-     * 图文链接.
-     */
-    public static final String LINK = "link";
-    /**
-     * 小程序卡片消息.
-     */
-    public static final String MA_PAGE = "miniprogrampage";
-  }
-
   public static final class ErrorCode {
     /**
      * 40001 获取access_token时AppSecret错误，或者access_token无效.

@@ -3,15 +3,20 @@ package com.jz.yihua.tt.miniapp.api.impl;
 import com.google.common.base.Joiner;
 import com.jz.yihua.toutiao.common.bean.TtAccessToken;
 import com.jz.yihua.toutiao.common.error.TtError;
+import com.jz.yihua.toutiao.common.error.TtErrorEnum;
 import com.jz.yihua.toutiao.common.error.TtErrorException;
 import com.jz.yihua.toutiao.common.util.DataUtils;
-import com.jz.yihua.toutiao.common.util.http.*;
+import com.jz.yihua.toutiao.common.util.http.AbstractGetRequestExecutor;
+import com.jz.yihua.toutiao.common.util.http.AbstractPostRequestExecutor;
+import com.jz.yihua.toutiao.common.util.http.IHttpRequest;
+import com.jz.yihua.toutiao.common.util.http.IHttpRequestExecutor;
 import com.jz.yihua.toutiao.common.util.http.apache.ApacheHttpClientBuilder;
 import com.jz.yihua.toutiao.common.util.http.apache.DefaultApacheHttpClientBuilder;
 import com.jz.yihua.tt.miniapp.api.TtMaService;
 import com.jz.yihua.tt.miniapp.bean.TtMaJscode2SessionResult;
 import com.jz.yihua.tt.miniapp.config.TtMaConfig;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
@@ -62,6 +67,10 @@ public class TtMaServiceImpl implements TtMaService, IHttpRequest<CloseableHttpC
 
     @Override
     public TtMaJscode2SessionResult jsCode2SessionInfo(String jsCode) throws TtErrorException {
+        if (StringUtils.isEmpty(jsCode)) {
+            throw new TtErrorException(TtError.builder().errorCode(TtErrorEnum.PARAM_ERROR.getCode())
+                    .errorMsg(TtErrorEnum.PARAM_ERROR.getMsg()).build());
+        }
         final TtMaConfig config = getTtMaConfig();
         Map<String, String> params = new HashMap<>(8);
         params.put("appid", config.getAppid());

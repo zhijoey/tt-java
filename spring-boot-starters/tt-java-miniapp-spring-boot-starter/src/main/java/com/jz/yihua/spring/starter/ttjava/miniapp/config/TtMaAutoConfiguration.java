@@ -34,7 +34,7 @@ public class TtMaAutoConfiguration {
    */
   @Bean
   @ConditionalOnMissingBean(TtMaService.class)
-  public TtMaService service() {
+  public TtMaService ttMaService() {
     TtMaDefaultConfigImpl config = new TtMaDefaultConfigImpl();
     config.setAppid(StringUtils.trimToNull(this.properties.getAppid()));
     config.setSecret(StringUtils.trimToNull(this.properties.getSecret()));

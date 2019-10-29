@@ -27,10 +27,4 @@ public class TtPayProperties {
    */
   private String secret;
 
-  /**
-   * 头条收银台1、0api地址
-   */
-  private String tpDomainUrl;
-
-
 }

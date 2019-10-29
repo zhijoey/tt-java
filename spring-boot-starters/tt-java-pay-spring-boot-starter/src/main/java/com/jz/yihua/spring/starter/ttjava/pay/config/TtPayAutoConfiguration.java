@@ -33,14 +33,13 @@ public class TtPayAutoConfiguration {
    */
   @Bean
   @ConditionalOnMissingBean(TtPayService.class)
-  public TtPayService service() {
+  public TtPayService ttPayService() {
     TtPayDefaultConfigImpl config = new TtPayDefaultConfigImpl();
     config.setAppid(StringUtils.trimToNull(this.properties.getAppid()));
     config.setMerchantid(StringUtils.trimToNull(this.properties.getMerchantid()));
     config.setSecret(StringUtils.trimToNull(this.properties.getSecret()));
-    config.setTpDomainUrl(StringUtils.trimToNull(this.properties.getTpDomainUrl()));
     final TtPayServiceImpl service = new TtPayServiceImpl() ;
-    service.setTtMaConfig(config);
+    service.setTtPayConfig(config);
     return service;
   }
 }

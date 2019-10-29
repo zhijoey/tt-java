@@ -39,8 +39,10 @@ public class TtPayServiceImpl implements TtPayService, IHttpRequest<CloseableHtt
      */
     private int maxRetryTimes = 5;
 
+    private static String TT_PAY_APPLET_VERSION1_API_URL = "https://tp-pay-test.snssdk.com";
+
     @Override
-    public void setTtMaConfig(TtPayConfig ttPayConfigProvider) {
+    public void setTtPayConfig(TtPayConfig ttPayConfigProvider) {
         this.ttPayConfig = ttPayConfigProvider;
     }
 
@@ -85,11 +87,7 @@ public class TtPayServiceImpl implements TtPayService, IHttpRequest<CloseableHtt
                 urlValues.append(val);
             }
         }
-        String tpDomainUrl = ttPayConfig.getTpDomainUrl();
-        if (tpDomainUrl.endsWith("/")) {
-            tpDomainUrl += request.getPath();
-        }
-        tpDomainUrl =  tpDomainUrl + "/" + request.getPath();
+        String tpDomainUrl =  TT_PAY_APPLET_VERSION1_API_URL + "/" + request.getPath();
         return callAppletVersion1Api(tpDomainUrl, urlValues.toString(), request);
     }
 

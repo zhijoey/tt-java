@@ -23,7 +23,7 @@ public interface TtPayService {
     /**
      * 注入 {@link TtPayConfig} 的实现.
      */
-    void setTtMaConfig(TtPayConfig ttPayConfigProvider);
+    void setTtPayConfig(TtPayConfig ttPayConfigProvider);
 
     TtTradeCreateResponse genPayRequestParams(TtTradeCreateRequest request) throws InvalidPayRequestException, TtErrorException;
 

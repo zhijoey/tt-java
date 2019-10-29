@@ -14,7 +14,6 @@ public class TtPayDefaultConfigImpl implements TtPayConfig {
   private volatile String appid;
   private volatile String merchantid;
   private volatile String secret;
-  private volatile String tpDomainUrl;
   private volatile ApacheHttpClientBuilder apacheHttpClientBuilder;
 
   @Override
@@ -38,15 +37,6 @@ public class TtPayDefaultConfigImpl implements TtPayConfig {
   @Override
   public String getSecret() {
     return secret;
-  }
-
-  @Override
-  public String getTpDomainUrl() {
-    return tpDomainUrl;
-  }
-
-  public void setTpDomainUrl(String tpDomainUrl) {
-    this.tpDomainUrl = tpDomainUrl;
   }
 
   public void setSecret(String secret){
