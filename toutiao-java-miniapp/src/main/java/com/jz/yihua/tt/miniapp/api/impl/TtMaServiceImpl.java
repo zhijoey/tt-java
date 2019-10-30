@@ -159,6 +159,7 @@ public class TtMaServiceImpl implements TtMaService, IHttpRequest<CloseableHttpC
 
             try (CloseableHttpResponse response = getRequestHttpClient().execute(httpGet)) {
                 String resultContent = new BasicResponseHandler().handleResponse(response);
+                log.info("【强制刷新accessToken】response content: {}", resultContent);
                 TtError error = TtError.fromJson(resultContent);
                 if (error.getErrorCode() != 0) {
                     throw new TtErrorException(error);
