@@ -60,8 +60,8 @@ public class TtPayServiceImpl implements TtPayService, IHttpRequest<CloseableHtt
 
         request.valid(ttPayConfig.getAppid(), ttPayConfig.getMerchantid());
 
-        if ( versionBackend.equals(TtPayConstants.PAY_DEFAULT_VERSION) || versionApplet.equals(TtPayAppletVersionEnum.Applet_Version_2p.getCode())
-                || versionApplet.equals(TtPayAppletVersionEnum.Applet_Version_1.getCode()) ) {
+        if ( versionBackend.equals(TtPayConstants.PAY_DEFAULT_VERSION) || versionApplet.equals(TtPayAppletVersionEnum.APPLET_VERSION_2P.getCode())
+                || versionApplet.equals(TtPayAppletVersionEnum.APPLET_VERSION_1.getCode()) ) {
             response = getTradeNo4AppletVersion1(request);
             request.setTradeNo(response.getTradeNo());
         }

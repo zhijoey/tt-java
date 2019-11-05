@@ -54,7 +54,7 @@ public class TtTradeCreateResponse extends BaseTtPayResponse {
         TtTradePayModel model = req.getTtTradePayModel();
         appletParams.put("app_id", appId);
         appletParams.put("sign_type", req.getSignType());
-        appletParams.put("timestamp", "" + System.currentTimeMillis() / 1000);
+        appletParams.put("timestamp", Long.toString(System.currentTimeMillis() / 1000));
         appletParams.put("trade_no", req.getTradeNo());
         appletParams.put("merchant_id", merchantId);
         appletParams.put("uid", model.getUid());
@@ -74,7 +74,7 @@ public class TtTradeCreateResponse extends BaseTtPayResponse {
         TtTradePayModel model = req.getTtTradePayModel();
         appletParams.put("app_id", appId);
         appletParams.put("sign_type", req.getSignType());
-        appletParams.put("timestamp", "" + System.currentTimeMillis() / 1000);
+        appletParams.put("timestamp", Long.toString(System.currentTimeMillis() / 1000));
         appletParams.put("merchant_id", merchantId);
         appletParams.put("uid", model.getUid());
         appletParams.put("total_amount", model.getTotalAmount().toString());

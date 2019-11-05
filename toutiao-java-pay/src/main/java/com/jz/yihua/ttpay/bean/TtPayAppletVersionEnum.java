@@ -11,9 +11,9 @@ public enum TtPayAppletVersionEnum {
     /**
      * 头条收银台版本号
      */
-    Applet_Version_1("1.0"),
-    Applet_Version_2("2.0"),
-    Applet_Version_2p("2.0+");
+    APPLET_VERSION_1("1.0"),
+    APPLET_VERSION_2("2.0"),
+    APPLET_VERSION_2P("2.0+");
 
 
     private String code;

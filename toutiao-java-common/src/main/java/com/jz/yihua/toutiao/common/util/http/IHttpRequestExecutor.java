@@ -9,7 +9,7 @@ import java.io.IOException;
  *
  * @param <R> 返回值类型(response - R)
  * @param <P> 请求参数类型(param - P)
- * @author huanzhi
+ * @author huangzhi
  */
 public interface IHttpRequestExecutor<R, P> {
 

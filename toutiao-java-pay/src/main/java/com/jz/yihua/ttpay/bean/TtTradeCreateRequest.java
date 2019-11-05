@@ -73,16 +73,16 @@ public class TtTradeCreateRequest extends BaseTtPayRequest {
         this.format = TtPayConstants.PAY_DEFAULT_FORMAT;
         this.charset = TtPayConstants.PAY_DEFAULT_CHARSET;
         this.signType = TtPayConstants.PAY_DEFAULT_SIGN_TYPE;
-        this.timestamp = TtPayConstants.EMPTY_STRING + System.currentTimeMillis() / 1000;
+        this.timestamp = Long.toString(System.currentTimeMillis() / 1000);
         this.version = TtPayConstants.PAY_DEFAULT_VERSION;
         this.path = TtPayConstants.PAY_DEFAULT_PATH;
         this.currency = TtPayConstants.PAY_DEFAULT_CURRENCY;
         this.tradeType = TtPayConstants.PAY_DEFAULT_TRADE_TYPE;
         this.productCode = TtPayConstants.PAY_DEFAULT_PRODUCT_CODE;
         this.serviceFee = TtPayConstants.EMPTY_STRING;
-        if (this.appletVersion.equals(TtPayAppletVersionEnum.Applet_Version_1.getCode())) {
+        if (this.appletVersion.equals(TtPayAppletVersionEnum.APPLET_VERSION_1.getCode())) {
             setParams4AppletVersion1();
-        } else if (this.appletVersion.equals(TtPayAppletVersionEnum.Applet_Version_2.getCode())) {
+        } else if (this.appletVersion.equals(TtPayAppletVersionEnum.APPLET_VERSION_2.getCode())) {
             setParams4AppletVersion2();
         } else {
             setParams4AppletVersion1();
@@ -157,8 +157,8 @@ public class TtTradeCreateRequest extends BaseTtPayRequest {
         TtPayParamsUtil.checkValidTime(ttTradePayModel.getValidTime());
         TtPayParamsUtil.checkNotifyUrl(ttTradePayModel.getNotifyUrl());
         TtPayParamsUtil.checkRiskInfo(ttTradePayModel.getRiskInfo());
-        if( appletVersion.equals(TtPayAppletVersionEnum.Applet_Version_2.getCode())
-                || appletVersion.equals(TtPayAppletVersionEnum.Applet_Version_2p.getCode()) ) {
+        if( appletVersion.equals(TtPayAppletVersionEnum.APPLET_VERSION_2.getCode())
+                || appletVersion.equals(TtPayAppletVersionEnum.APPLET_VERSION_2P.getCode()) ) {
             TtPayParamsUtil.checkProductCode(productCode);
             TtPayParamsUtil.checkPaymentType(paymentType);
             TtPayParamsUtil.checkTradeType(tradeType);
